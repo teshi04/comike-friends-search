@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  　<style>
+    .form-control {
+      width: 230px;
+    }
+    </style>
+    <title>フォローしてる人の中からコミケ参加者っぽい人を抽出するくん</title>
+  </head>
+  <body >
+    <div class="container">
+      <h1>フォローしてる人の中からコミケ参加者っぽい人を抽出するくん</h1>
+      <p>ツイートのテキストから検索します。<br>※ 検索には時間が掛かります。</p>
+      <br>
+      <form name="plain" method="post" action="/">
+        <div class="form-group form-inline">
+          <input type="text" class="form-control" name="query">
+          <input class="btn btn-primary" type="submit" value="検索">
+        </div>
+      </form>
+      <h4>検索ワード：<%= search_word %></h4>
+      <% for tweet in results %>
+        <p>
+         <blockquote class="twitter-tweet" lang="ja"><p><a href="https://twitter.com/teshi04">@teshi04</a> </p>&mdash; てんし (@teshi04) <a href="https://twitter.com/teshi04/statuses/<%= tweet.id %>">2013, 10月 10</a></blockquote>
+        </p>
+      <% end %>
+      <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+  </body>
+</html>

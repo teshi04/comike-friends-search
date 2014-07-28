@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  　<style>
+    .form-control {
+      width: 230px;
+    }
+    </style>
+    <title>フォローしてる人の中からコミケ参加者っぽい人を抽出するくん</title>
+  </head>
+  <body >
+    <div class="container">
+      <h1>フォローしてる人の中からコミケ参加者っぽい人を抽出するくん</h1>
+      <p>ツイートのテキストから検索します。<br>※ 検索には時間が掛かります。</p>
+        <br>
+      <form name="plain" action="/">
+        <div class="form-group form-inline">
+          <input type="text" class="form-control" name="query">
+          <input class="btn btn-primary" type="submit" value="検索">
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
