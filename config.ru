@@ -3,5 +3,5 @@ require 'bundler/setup'
 
 Bundler.require
 
-require './twi_search'
-run TwiSearch
+require './comike_friends_search.rb'
+run ComikeFriendsSearch
