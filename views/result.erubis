@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  <meta charset="utf-8">
+<head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-  　<style>
-    .form-control {
-      width: 230px;
-    }
+    　
+    <style>
+        .form-control {
+            width: 230px;
+        }
     </style>
     <title>フォローしてる人の中からコミケ参加者っぽい人を抽出するくん</title>
-  </head>
-  <body >
-    <div class="container">
-      <h1>フォローしてる人の中からコミケ参加者っぽい人を抽出するくん</h1>
-      <p>検索には時間が掛かります。</p>
-      <br>
-      <form style="width:340px;" name="plain" method="post" action="/">
+</head>
+<body>
+<div class="container">
+    <h1>フォローしてる人の中からコミケ参加者っぽい人を抽出するくん</h1>
+
+    <p>検索したユーザーがフォローしている全ユーザーの名前をチェックして、コミケ参加者っぽい名前（例："なまえ＠3日目西か46b"）のユーザーを抽出するよ。
+        <br>※ 検索には時間が掛かります。作者：<a href="http://twitter.com/teshi04">@teshi04</a></p>
+    <br>
+
+    <form style="width:280px;" name="plain" method="post" action="/">
         <div class="input-group">
-          <span class="input-group-addon">@</span>
-          <input type="text" placeholder="screen_name" class="form-control" name="query">
+            <span class="input-group-addon">@</span>
+            <input type="text" placeholder="screen_name" class="form-control" name="query">
           <span class="input-group-btn">
              <button class="btn btn-primary" type="submit">検索</button>
           </span>
         </div>
-      </form>
-      <h3>@<%= search_screen_name %> さんのフォローのしているコミケ参加者っぽい人</h3>
-      <% for user in results %>
-        <p>
-        <a href="https://twitter.com/<%= user.screen_name %>"><%= user.name %></a>
-        </p>
-      <% end %>
-    </div>
-  </body>
+    </form>
+    <br>
+
+    <h3>@<%= search_screen_name %> さんのフォローのしているコミケ参加者っぽい人</h3>
+    <br>
+    <% for user in results %>
+    <p><a href="https://twitter.com/<%= user.screen_name %>"><%= user.name %></a></p>
+    <% end %>
+</div>
+</body>
 </html>
