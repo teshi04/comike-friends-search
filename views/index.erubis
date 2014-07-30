@@ -17,7 +17,18 @@
     <h1>フォローしてる人の中からコミケ参加者っぽい人を抽出するくん</h1>
 
     <p>検索したユーザーがフォローしている全ユーザーの名前をチェックして、コミケ参加者っぽい名前（例："なまえ＠3日目西か46b"）のユーザーを抽出するよ。
-        <br>※ 検索には時間が掛かります。　作者： <a href="http://twitter.com/teshi04">@teshi04</a></p>
+        <br>※ 検索には時間が掛かります。作者：<a href="http://twitter.com/teshi04">@teshi04</a>
+        　　<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+        <script>!function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = p + '://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }(document, 'script', 'twitter-wjs');</script>
+    </p>
     <br>
 
     <form style="width:340px;" name="plain" method="post" action="/">
