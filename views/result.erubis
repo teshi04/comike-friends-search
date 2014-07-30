@@ -16,6 +16,15 @@
       <h1>フォローしてる人の中からコミケ参加者っぽい人を抽出するくん</h1>
       <p>検索には時間が掛かります。</p>
       <br>
+      <form style="width:340px;" name="plain" method="post" action="/">
+        <div class="input-group">
+          <span class="input-group-addon">@</span>
+          <input type="text" placeholder="screen_name" class="form-control" name="query">
+          <span class="input-group-btn">
+             <button class="btn btn-primary" type="submit">検索</button>
+          </span>
+        </div>
+      </form>
       <h3>@<%= search_screen_name %> さんのフォローのしているコミケ参加者っぽい人</h3>
       <% for user in results %>
         <p>

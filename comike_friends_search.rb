@@ -11,7 +11,7 @@ class ComikeFriendsSearch < Sinatra::Base
     erb :index
   end
 
-  post '/result' do
+  post '/' do
     search_screen_name = params[:query]
 
     friends = get_all_friends(search_screen_name)
@@ -49,8 +49,8 @@ class ComikeFriendsSearch < Sinatra::Base
     client = twitter_client
 
     all_friends = []
-    client.friend_ids(screen_name).each_slice(SLICE_SIZE).with_index do |slice|
-      client.users(slice).each_with_index do |friend|
+    client.friend_ids(screen_name).each_slice(SLICE_SIZE).each do |slice|
+      client.users(slice).each do |friend|
         all_friends << friend
       end
     end
