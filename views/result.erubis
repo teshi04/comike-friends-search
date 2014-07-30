@@ -16,7 +16,7 @@
       <h1>フォローしてる人の中からコミケ参加者っぽい人を抽出するくん</h1>
       <p>検索には時間が掛かります。</p>
       <br>
-      <h3><%= search_screen_name %> さんのフォローのしているコミケ参加者っぽい人</h3>
+      <h3>@<%= search_screen_name %> さんのフォローのしているコミケ参加者っぽい人</h3>
       <% for user in results %>
         <p>
         <a href="https://twitter.com/<%= user.screen_name %>"><%= user.name %></a>
