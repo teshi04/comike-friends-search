@@ -44,6 +44,7 @@
 
     <h3>@<%= search_screen_name %> さんのフォローのしているコミケ参加者っぽい人</h3>
     <br>
+    <%= error_message %>
     <% for user in results %>
     <p><a href="https://twitter.com/<%= user.screen_name %>"><%= user.name %></a></p>
     <% end %>

@@ -16,15 +16,19 @@ class ComikeFriendsSearch < Sinatra::Base
 
     friends = get_all_friends(search_screen_name)
 
-    # フォローの中からコミケ参加者っぽいユーザを抽出
     results = []
-    friends.each do |friend|
-      if friend.name.include?("日目")
-        results << friend
+    if friends.class == String then
+      error_message = friends
+    else
+      # フォローの中からコミケ参加者っぽいユーザを抽出
+      friends.each do |friend|
+        if friend.name.include?("日目")
+          results << friend
+        end
       end
     end
 
-    erb :result, :locals => {:results => results, :search_screen_name => search_screen_name}
+    erb :result, :locals => {:results => results, :search_screen_name => search_screen_name, :error_message => error_message}
   end
 
   def twitter_client
@@ -49,13 +53,22 @@ class ComikeFriendsSearch < Sinatra::Base
     client = twitter_client
 
     all_friends = []
-    client.friend_ids(screen_name).each_slice(SLICE_SIZE).each do |slice|
-      client.users(slice).each do |friend|
-        all_friends << friend
+    begin
+      client.friend_ids(screen_name).each_slice(SLICE_SIZE).each do |slice|
+        client.users(slice).each do |friend|
+          all_friends << friend
+        end
       end
-    end
 
-    all_friends
+      all_friends
+    end
+  rescue Twitter::Error::TooManyRequests
+    "エラー：混雑しています。時間を置いて試してください。"
+  rescue Twitter::Error::Unauthorized
+    "エラー：鍵付きユーザーはこのアプリを使用できません。"
+  rescue Twitter::Error::NotFound
+    "エラー：存在しないユーザーです。"
   end
+
 
 end
