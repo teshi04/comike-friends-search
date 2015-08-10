@@ -45,7 +45,16 @@
     <h3>@<%= search_screen_name %> さんのフォローのしているコミケ参加者っぽい人</h3>
     <br>
     <%= error_message %>
-    <% for user in results %>
+    <h4>１日目</h4>
+    <% for user in day1 %>
+    <p><a href="https://twitter.com/<%= user.screen_name %>"><%= user.name %></a></p>
+    <% end %>
+    <h4>２日目</h4>
+    <% for user in day2 %>
+    <p><a href="https://twitter.com/<%= user.screen_name %>"><%= user.name %></a></p>
+    <% end %>
+    <h4>３日目</h4>
+    <% for user in day3 %>
     <p><a href="https://twitter.com/<%= user.screen_name %>"><%= user.name %></a></p>
     <% end %>
 </div>
