@@ -15,15 +15,17 @@ class ComikeFriendsSearch < Sinatra::Base
     search_screen_name = params[:query]
 
     friends = get_all_friends(search_screen_name)
-
+    comikeString = ["日目", "曜日"]
     results = []
     if friends.class == String then
       error_message = friends
     else
       # フォローの中からコミケ参加者っぽいユーザを抽出
       friends.each do |friend|
-        if friend.name.include?("日目")
-          results << friend
+        comikeString.any? do |m|
+          if friend.name.include?(m)
+            results << friend
+          end
         end
       end
     end
