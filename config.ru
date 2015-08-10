@@ -3,5 +3,5 @@ require 'bundler/setup'
 
 Bundler.require
 
-require './comike_friends_search.rb'
+require './app.rb'
 run ComikeFriendsSearch
