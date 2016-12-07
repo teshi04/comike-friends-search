@@ -32,7 +32,7 @@ class ComikeFriendsSearch < Sinatra::Base
 
     # ソート
     day1 = []
-    day1_text = ["金曜", "１日目", "1日目", "一日目"]
+    day1_text = ["木曜", "１日目", "1日目", "一日目"]
     results.each do |friend|
       day1_text.any? do |m|
         if friend.name.include?(m)
@@ -42,7 +42,7 @@ class ComikeFriendsSearch < Sinatra::Base
     end
 
     day2 = []
-    day2_text = ["土曜", "２日目", "2日目", "二日目"]
+    day2_text = ["金曜", "２日目", "2日目", "二日目"]
     results.each do |friend|
       day2_text.any? do |m|
         if friend.name.include?(m)
@@ -52,7 +52,7 @@ class ComikeFriendsSearch < Sinatra::Base
     end
 
     day3 = []
-    day3_text = ["日曜", "３日目", "3日目", "三日目"]
+    day3_text = ["土曜", "３日目", "3日目", "三日目"]
     results.each do |friend|
       day3_text.any? do |m|
         if friend.name.include?(m)
